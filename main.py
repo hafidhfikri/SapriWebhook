@@ -6,7 +6,7 @@ def webhook(request):
     response = json.dumps({'fulfillmentMessages':[{'text':{'text':['Internal Error']}}]})
     
     #get request payload
-    json_parse = json.loads(request)
+    #json_parse = json.loads(request)
     '''
     #dialogflow and telegram validation
     if ('responseId' in json_parse) and (json_parse['originalDetectIntentRequest']['source'] == 'telegram') :
