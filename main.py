@@ -6,15 +6,14 @@ def webhook(request):
     response = json.dumps({'fulfillmentMessages':[{'text':{'text':['Internal Error']}}]})
     
     #get request payload
-    request_json = request.get_json()
-    json_parse = json.loads(request_json)
+    json_parse = json.loads(request)
 
     #dialogflow and telegram validation
     if ('responseId' in json_parse) and (json_parse['originalDetectIntentRequest']['source'] == 'telegram') :
         '''
         try:
             url = ""
-            response = req.post(url,request_json)
+            response = req.post(url,request)
         except:
             print("Error Something Happen....")
             response = json.dumps({'fulfillmentMessages':[{'text':{'text':['Internal Error']}}]})
@@ -24,4 +23,4 @@ def webhook(request):
     else:
         response = json.dumps({'fulfillmentMessages':[{'text':{'text':['Illegal Action']}}]})
     
-    return response
+    return response  
