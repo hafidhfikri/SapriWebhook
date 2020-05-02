@@ -11,14 +11,14 @@ def webhook(request):
     
     #dialogflow and telegram validation
     if ('responseId' in json_parse) and (json_parse['originalDetectIntentRequest']['source'] == 'telegram') :
-        
+        '''
         try:
             url = ""
             response = req.post(url,request)
         except:
             print("Error Something Happen....")
             response = json.dumps({'fulfillmentMessages':[{'text':{'text':['Internal Error']}}]})
-        
+        '''
 
         response = json.dumps({'fulfillmentMessages':[{'text':{'text':['Sukses']}}]})
     else:
