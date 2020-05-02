@@ -1,4 +1,4 @@
-import request
+import requests as req
 import json
 
 def webhook(request):
@@ -14,7 +14,7 @@ def webhook(request):
         print("ACCEPTED!!!")
         try:
             url = ""
-            response = request.post(url,request_json)
+            response = req.post(url,request_json)
         except:
             print("Error Something Happen....")
             response = json.dumps({"fulfillmentMessages":[{"text":{"text":["Internal Error"]}}]})
