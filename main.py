@@ -11,7 +11,7 @@ def webhook(request):
     print(type(request))
     
     #dialogflow and telegram validation
-    if ('responseId' in json_parse) and (json_parse['originalDetectIntentRequest']['source'] is 'telegram') :
+    if ('responseId' in json_parse) and (json_parse.get('originalDetectIntentRequest', {}).get('source') is 'telegram') :
         '''
         try:
             url = ""
