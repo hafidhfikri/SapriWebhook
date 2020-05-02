@@ -4,7 +4,7 @@ import json
 def webhook(request):
     #set default response
     print("START")
-    response = json.dumps({"fulfillmentMessages":[{"text":{"text":["Internal Error"]}}]})
+    #response = json.dumps({"fulfillmentMessages":[{"text":{"text":["Internal Error"]}}]})
     '''
     #get request payload
     request_json = request.get_json()
@@ -27,4 +27,4 @@ def webhook(request):
         print("Illegal Request")
         response = json.dumps({"fulfillmentMessages":[{"text":{"text":["Illegal Request"]}}]})
     '''
-    return response
+    return "FINISH"
