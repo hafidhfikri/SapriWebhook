@@ -6,23 +6,23 @@ def webhook(request):
     response = json.dumps({'fulfillmentMessages':[{'text':{'text':['Internal Error']}}]})
     
     #get request payload
-    json_parse = request.get_json()
-    print(type(json_parse))
+    json_parse = request.get_json() #jadi dictionary
+    print(type(json_parse)) 
     print(type(request))
-    '''
-    #dialogflow and telegram validation
-    if ('responseId' in json_parse) and (request['originalDetectIntentRequest']['source'] == 'telegram') :
     
+    #dialogflow and telegram validation
+    if ('responseId' in json_parse) and (json_parse['originalDetectIntentRequest']['source'] is 'telegram') :
+        '''
         try:
             url = ""
             response = req.post(url,request)
         except:
             print("Error Something Happen....")
             response = json.dumps({'fulfillmentMessages':[{'text':{'text':['Internal Error']}}]})
-    
+        '''
 
         response = json.dumps({'fulfillmentMessages':[{'text':{'text':['Sukses']}}]})
     else:
         response = json.dumps({'fulfillmentMessages':[{'text':{'text':['Illegal Action']}}]})
-    '''
+    
     return response  
