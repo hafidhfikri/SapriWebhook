@@ -14,7 +14,8 @@ def webhook(request):
         
         try:
             url = "https://us-central1-newagent-mnsmjh.cloudfunctions.net/ChatGateway"
-            response = req.post(url,json_parse)
+            result = req.post(url,json_parse)
+            response = result.text
         except:
             print("Error Something Happen....")
             response = json.dumps({'fulfillmentMessages':[{'text':{'text':['Request Error']}}]})
