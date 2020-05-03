@@ -17,8 +17,9 @@ def webhook(request):
             print(json_parse)
             result = req.post(url,json=json.dumps(json_parse),header=header)
             response = result.text
-        except:
+        except Exception as e:
             print("Error Something Happen....")
+            print(e)
             response = json.dumps({'fulfillmentMessages':[{'text':{'text':['Request Error']}}]})
 
     else:
